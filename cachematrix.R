@@ -37,3 +37,24 @@ cacheSolve <- function(x, ...) {
       x$setinverse(ix)
       ix
 }
+
+## Example how to use it 
+## > m <- matrix(1:4, nrow = 2, ncol = 2)
+## > mc <-makeCacheMatrix(m)
+## > mci<-cacheSolve(mc)
+## > mc$get()
+##       [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4
+## >mci<-cacheSolve(mc)
+##  getting cached data
+## >mci
+##       [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+##> mci %*% mc$get()
+##       [,1] [,2]
+## [1,]    1    0
+## [2,]    0    1
+
+
